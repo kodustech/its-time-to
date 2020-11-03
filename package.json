@@ -1,0 +1,23 @@
+{
+  "name": "its-time-to",
+  "version": "0.0.1",
+  "description": "Reminder for discord",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "discord.js": "^12.4.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "moment-timezone": "^0.5.31",
+    "node-cron": "^2.0.3",
+    "sqlite3": "^5.0.0"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express"
+  ]
+}
