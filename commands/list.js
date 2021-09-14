@@ -6,7 +6,11 @@ module.exports.run = async (db, client, message, args) => {
         > ID: ${x.id}
         > Mensagem: ${x.message}
         > Quando: ${
-          x.period === "d" ? `Todo dia as ${x.time}` : `${x.date} ${x.time}`
+          x.period === "d"
+            ? `Todo dia as ${x.time}`
+            : x.period === "c"
+            ? x.time
+            : `${x.date} ${x.time}`
         }
         > Canal: <#${x.idChannel}>
       `);

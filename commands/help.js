@@ -35,6 +35,11 @@ module.exports.run = async (db, client, message, args) => {
           bl +
           "!r register d 9:40 #geral essa mensagem vai ser enviada todo dia"
       ) +
+      diff(
+        "+ Cron schedule" +
+          bl +
+          "!r register c */3 * * * * * #geral mensagem a cada 3 segundos"
+      ) +
       bl +
       fix("list") +
       "> Lista os lembretes cadastrados e ainda não enviados" +

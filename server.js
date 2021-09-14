@@ -14,6 +14,7 @@ const app = express();
 const fs = require("fs");
 const Discord = require("discord.js");
 const cron = require("node-cron");
+const cronService = require('./service/cron');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -64,7 +65,7 @@ client.on("message", async (message) => {
     commandFile.run(db, client, message, args);
   } catch (error) {
     const commandFile = require(`./commands/help.js`);
-    commandFile.run(db, client, message, args);
+    commandFile.run(db, client, message);
     console.log(error);
   }
 });
@@ -93,6 +94,7 @@ function sendMessages() {
 }
 
 app.get("/", (request, response) => {
+  cronService.getAll();
   return response.send({ hello: "World" });
 });
 
