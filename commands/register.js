@@ -10,12 +10,17 @@ module.exports.run = async (db, client, message, args) => {
   // !r register u 30/10/2020-9:40 #geral essa mensagem vai ser uma vez
   // !r register c * * * * * * #geral mensagem cron
 
-  //const [period, time, to, ...m] = args;
   let [period] = args;
-  let time, to, text;
+  let time;
+  let to;
+  let text;
 
   if (period === "c") {
+    let s, m, h, d, mo, dw;
     [period, s, m, h, d, mo, dw, to, ...text] = args;
+    const tz = new Date().getTimezoneOffset() / 60;
+    h = h + tz;
+    if (h >= 24) h = Math.abs(h - 24);
     time = `${s} ${m} ${h} ${d} ${mo} ${dw}`;
   } else {
     [period, time, to, ...text] = args;
